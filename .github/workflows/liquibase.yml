@@ -34,7 +34,8 @@ jobs:
             TRUSTSTORE_JKS: ${{ secrets.TRUSTSTORE_JKS }}
         run: |
             pwd
-            mkdri oracle
+            mkdir oracle
+            echo $CWALLET_SSO
             echo $CWALLET_SSO | base64 -d > oracle/cwallet.sso
             echo $EWALLET_P12 | base64 -d > oracle/ewallet.p12
             echo $EWALLET_PEM | base64 -d > oracle/ewallet.pem
