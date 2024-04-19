@@ -35,15 +35,15 @@ jobs:
         run: |
             pwd
             mkdir oracle
-            echo $CWALLET_SSO
-            echo $CWALLET_SSO | base64 -d > oracle/cwallet.sso
-            echo $EWALLET_P12 | base64 -d > oracle/ewallet.p12
-            echo $EWALLET_PEM | base64 -d > oracle/ewallet.pem
-            echo $KEYSTRORE_JKS | base64 -d > oracle/keystore.jks
-            echo $OJDBC_PROPERTIES | base64 -d > oracle/ojbdc.properties
-            echo $SQLNET_ORA | base64 -d > oracle/sqlnet.ora
-            echo $TNSNAMES_ORA | base64 -d > oracle/tnsnames.ora
-            echo $TRUSTSTORE_JKS | base64 -d > oracle/truststore.jks
+            echo "$CWALLET_SSO"
+            echo "$CWALLET_SSO" | base64 -d > oracle/cwallet.sso
+            echo "$EWALLET_P12" | base64 -d > oracle/ewallet.p12
+            echo "$EWALLET_PEM" | base64 -d > oracle/ewallet.pem
+            echo "$KEYSTRORE_JKS" | base64 -d > oracle/keystore.jks
+            echo "$OJDBC_PROPERTIES" | base64 -d > oracle/ojbdc.properties
+            echo "$SQLNET_ORA" | base64 -d > oracle/sqlnet.ora
+            echo "$TNSNAMES_ORA" | base64 -d > oracle/tnsnames.ora
+            echo "$TRUSTSTORE_JKS" | base64 -d > oracle/truststore.jks
             ls oracle
             cat oracle/tnsnames.ora
 
