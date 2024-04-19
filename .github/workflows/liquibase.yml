@@ -22,6 +22,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: actions/checkout@v3
       - name: Restore the wallet
         env:
             CWALLET_SSO: ${{ secrets.CWALLET_SSO }}
@@ -47,4 +48,13 @@ jobs:
             ls oracle
             cat oracle/tnsnames.ora
 
+      - name: Run liquibase
+      - uses: liquibase-github-actions/update@v4.27.0
+        with: 
+          changelogFile: changelog.json
+          url: url:jdbc:oracle:thin:@Dev_high?TNS_ADMIN=./oracle
+          username: ${{ secrets.DB_USER }}
+          password: ${{ secrets.DB_PASSWORD }}
+
+        
             
